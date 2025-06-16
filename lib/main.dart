@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nawel/core/constants/screens.dart';
+import 'package:nawel/features/onboarding/landing_screen.dart';
 
 import 'features/splash_screen.dart';
 
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
         title: 'Nawel',
         routes: {
           kSplashScreen: (context) => const SplashScreen(),
+          kLandingScreen: (context) => LandingScreen(),
         },
         initialRoute: kSplashScreen,
       ),
