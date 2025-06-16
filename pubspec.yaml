@@ -11,8 +11,12 @@ dependencies:
   dio: ^5.8.0+1
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.2
   flutter_bloc: ^9.1.1
   flutter_screenutil: ^5.9.3
+  flutter_secure_storage: ^9.2.4
+  flutter_svg: ^2.1.0
+  get_it: ^8.0.3
   shared_preferences: ^2.5.3
 
 dev_dependencies:
@@ -22,3 +26,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/svgs/
+    - assets/icons/

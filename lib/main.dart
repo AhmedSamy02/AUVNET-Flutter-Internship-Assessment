@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get_it/get_it.dart';
+import 'package:nawel/core/constants/screens.dart';
+
+import 'features/splash_screen.dart';
+
 void main() {
+  GetIt.I.registerSingleton<FlutterSecureStorage>(const FlutterSecureStorage());
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MainApp());
 }
 
@@ -8,12 +17,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return ScreenUtilInit(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Nawel',
+        routes: {
+          kSplashScreen: (context) => const SplashScreen(),
+        },
+        initialRoute: kSplashScreen,
       ),
     );
   }
