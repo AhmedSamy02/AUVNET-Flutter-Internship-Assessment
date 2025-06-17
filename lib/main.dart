@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nawel/core/constants/screens.dart';
+import 'package:nawel/features/auth/presentation/screens/login_screen.dart';
 import 'package:nawel/features/onboarding/landing_screen.dart';
 
 import 'features/splash_screen.dart';
@@ -25,8 +27,13 @@ class MainApp extends StatelessWidget {
         routes: {
           kSplashScreen: (context) => const SplashScreen(),
           kLandingScreen: (context) => LandingScreen(),
+          kLoginScreen: (context) => LoginScreen(),
         },
-        initialRoute: kSplashScreen,
+        initialRoute: kLoginScreen,
+        theme: ThemeData(
+            textTheme: GoogleFonts.rubikTextTheme(
+          Theme.of(context).textTheme,
+        )),
       ),
     );
   }
