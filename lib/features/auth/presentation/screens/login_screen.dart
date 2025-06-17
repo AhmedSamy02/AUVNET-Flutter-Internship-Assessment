@@ -62,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                             return null;
                           },
                         ),
-                        SizedBox(height: 16.h),
+                        SizedBox(height: 18.h),
                         TextButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(context, kLoginScreen);
@@ -79,13 +79,13 @@ class LoginScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Log in',
-                            style: GoogleFonts.rubik(
+                            style: GoogleFonts.dmSans(
                               color: Colors.white,
                               fontSize: 14.sp,
                             ),
                           ),
                         ),
-                        SizedBox(height: 1.h),
+                        SizedBox(height: 4.h),
                         TextButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(
@@ -93,10 +93,10 @@ class LoginScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Create an account',
-                            style: GoogleFonts.rubik(
+                            style: GoogleFonts.dmSans(
                               color: Colors.blueAccent,
                               fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),

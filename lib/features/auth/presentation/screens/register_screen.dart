@@ -111,9 +111,10 @@ class RegisterScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Sign up',
-                            style: GoogleFonts.rubik(
+                            style: GoogleFonts.dmSans(
                               color: Colors.white,
                               fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -124,10 +125,10 @@ class RegisterScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Log in',
-                            style: GoogleFonts.rubik(
+                            style: GoogleFonts.dmSans(
                               color: Colors.blueAccent,
                               fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),

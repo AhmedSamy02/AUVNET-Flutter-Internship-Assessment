@@ -69,4 +69,48 @@ flutter:
         - asset: assets/fonts/rubik/Rubik-SemiBoldItalic.ttf
           weight: 600
           style: italic
-        
+    - family: dm_sans
+      fonts:
+        - asset: assets/fonts/dm_sans/DM_Sans-Regular.ttf
+        - asset: assets/fonts/dm_sans/DM_Sans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/dm_sans/DM_Sans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/dm_sans/DM_Sans-Italic.ttf
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/dm_sans/DM_Sans-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/dm_sans/DM_Sans-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/dm_sans/DM_Sans-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/dm_sans/DM_Sans-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/dm_sans/DM_Sans-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/dm_sans/DM_Sans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/dm_sans/DM_Sans-ThinItalic.ttf
+          weight: 100
+          style: italic
