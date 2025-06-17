@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nawel/core/constants/screens.dart';
 import 'package:nawel/features/auth/presentation/screens/login_screen.dart';
+import 'package:nawel/features/auth/presentation/screens/register_screen.dart';
 import 'package:nawel/features/onboarding/landing_screen.dart';
 
 import 'features/splash_screen.dart';
@@ -28,6 +29,7 @@ class MainApp extends StatelessWidget {
           kSplashScreen: (context) => const SplashScreen(),
           kLandingScreen: (context) => LandingScreen(),
           kLoginScreen: (context) => LoginScreen(),
+          kRegisterScreen: (context) => RegisterScreen(),
         },
         initialRoute: kLoginScreen,
         theme: ThemeData(

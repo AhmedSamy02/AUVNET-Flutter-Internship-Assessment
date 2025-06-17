@@ -23,6 +23,7 @@ class AuthTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: 1,
       validator: validator,
       onTapOutside: (event) {
         FocusScope.of(context).unfocus();
@@ -34,6 +35,10 @@ class AuthTextFormField extends StatelessWidget {
       textInputAction: textInputAction,
       decoration: InputDecoration(
         hintText: hintText,
+        hintStyle: TextStyle(
+          color: Colors.grey[500]!,
+          fontSize: 14.sp,
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.grey[300]!,
