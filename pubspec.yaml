@@ -20,6 +20,7 @@ dependencies:
   flutter_svg: ^2.1.0
   get_it: ^8.0.3
   google_fonts: ^6.2.1
+  persistent_bottom_nav_bar: ^6.2.1
   quickalert: ^1.1.0
 dev_dependencies:
   flutter_lints: ^4.0.0

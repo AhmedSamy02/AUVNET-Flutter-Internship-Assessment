@@ -8,6 +8,7 @@ import 'package:nawel/core/constants/screens.dart';
 import 'package:nawel/features/auth/presentation/controllers/auth_bloc.dart';
 import 'package:nawel/features/auth/presentation/screens/login_screen.dart';
 import 'package:nawel/features/auth/presentation/screens/register_screen.dart';
+import 'package:nawel/features/home/presentation/screens/home_screen.dart';
 import 'package:nawel/features/onboarding/landing_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -42,8 +43,12 @@ class MainApp extends StatelessWidget {
                 create: (context) => AuthBloc(),
                 child: RegisterScreen(),
               ),
+          kHomeScreen: (context) => BlocProvider(
+                create: (context) => AuthBloc(),
+                child: const HomeScreen(),
+              ),
         },
-        initialRoute: kLoginScreen,
+        initialRoute: kHomeScreen,
         theme: ThemeData(
             textTheme: GoogleFonts.rubikTextTheme(
           Theme.of(context).textTheme,
