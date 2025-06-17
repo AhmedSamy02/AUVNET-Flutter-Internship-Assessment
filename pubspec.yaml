@@ -21,7 +21,6 @@ dependencies:
   get_it: ^8.0.3
   google_fonts: ^6.2.1
   quickalert: ^1.1.0
-  shared_preferences: ^2.5.3
 dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
@@ -73,46 +72,46 @@ flutter:
           style: italic
     - family: dm_sans
       fonts:
-        - asset: assets/fonts/dm_sans/DM_Sans-Regular.ttf
-        - asset: assets/fonts/dm_sans/DM_Sans-Medium.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Regular.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Medium.ttf
           weight: 500
-        - asset: assets/fonts/dm_sans/DM_Sans-Bold.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Bold.ttf
           weight: 700
-        - asset: assets/fonts/dm_sans/DM_Sans-Italic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Italic.ttf
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-MediumItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-MediumItalic.ttf
           weight: 500
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-BoldItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-BoldItalic.ttf
           weight: 700
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-Light.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Light.ttf
           weight: 300
-        - asset: assets/fonts/dm_sans/DM_Sans-LightItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-LightItalic.ttf
           weight: 300
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-Black.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Black.ttf
           weight: 900
-        - asset: assets/fonts/dm_sans/DM_Sans-BlackItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-BlackItalic.ttf
           weight: 900
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-ExtraBold.ttf
+        - asset: assets/fonts/dm_sans/DMSans-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/dm_sans/DM_Sans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-ExtraBoldItalic.ttf
           weight: 800
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-SemiBold.ttf
+        - asset: assets/fonts/dm_sans/DMSans-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/dm_sans/DM_Sans-SemiBoldItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-SemiBoldItalic.ttf
           weight: 600
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-ExtraLight.ttf
+        - asset: assets/fonts/dm_sans/DMSans-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/dm_sans/DM_Sans-ExtraLightItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-ExtraLightItalic.ttf
           weight: 200
           style: italic
-        - asset: assets/fonts/dm_sans/DM_Sans-Thin.ttf
+        - asset: assets/fonts/dm_sans/DMSans-Thin.ttf
           weight: 100
-        - asset: assets/fonts/dm_sans/DM_Sans-ThinItalic.ttf
+        - asset: assets/fonts/dm_sans/DMSans-ThinItalic.ttf
           weight: 100
           style: italic

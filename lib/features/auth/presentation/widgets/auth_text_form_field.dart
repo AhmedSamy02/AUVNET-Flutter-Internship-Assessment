@@ -33,6 +33,7 @@ class AuthTextFormField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
