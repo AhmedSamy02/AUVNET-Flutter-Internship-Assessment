@@ -9,6 +9,6 @@ class LoginUseCase extends UseCaseWithTwoParams<void, String, String> {
   LoginUseCase({required this.repository});
 
   @override
-  Future<Either<Failure, void>> call(email, password) =>
+  Future<Either<Failure, String>> call(email, password) =>
       repository.login(email, password);
 }

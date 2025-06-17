@@ -11,10 +11,11 @@ class AuthRepositoryImpl extends AuthRepository {
 
   AuthRepositoryImpl({required this.remoteDataSource});
   @override
-  Future<Either<Failure, User>> login(String email, String password) async {
+  Future<Either<Failure, String>> login(String email, String password) async {
     try {
       final userCredential = await remoteDataSource.login(email, password);
-      return Right(userCredential.user!);
+      final token = await userCredential.user!.getIdToken();
+      return Right(token!);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseFailure.fromCode(e.code));
     } catch (e) {
@@ -23,12 +24,13 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Either<Failure, User>> register(String name,String email, String password) async {
+  Future<Either<Failure, String>> register(String name,String email, String password) async {
     try {
       UserCredential credential = await remoteDataSource.register(email, password);
       credential.user!.updateProfile(displayName: name);
       await credential.user!.reload();
-      return Right(credential.user!);
+      final token = await credential.user!.getIdToken();
+      return Right(token!);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseFailure.fromCode(e.code));
     } catch (e) {
