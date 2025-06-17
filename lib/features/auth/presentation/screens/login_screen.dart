@@ -125,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               fixedSize: Size(
                                 MediaQuery.of(context).size.width,
-                                45.h,
+                                MediaQuery.of(context).size.height * 0.07,
                               ),
                             ),
                             child: Text(
