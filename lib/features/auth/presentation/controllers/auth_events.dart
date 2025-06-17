@@ -18,3 +18,6 @@ final class AuthRegisterRequested extends AuthEvent {
     required this.password,
   });
 }
+final class AuthLogoutRequested extends AuthEvent {
+  AuthLogoutRequested();
+}
