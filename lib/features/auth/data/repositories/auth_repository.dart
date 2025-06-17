@@ -24,13 +24,11 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Either<Failure, String>> register(String name,String email, String password) async {
+  Future<Either<Failure, void>> register(String email, String password) async {
     try {
       UserCredential credential = await remoteDataSource.register(email, password);
-      credential.user!.updateProfile(displayName: name);
       await credential.user!.reload();
-      final token = await credential.user!.getIdToken();
-      return Right(token!);
+      return const Right(null);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseFailure.fromCode(e.code));
     } catch (e) {

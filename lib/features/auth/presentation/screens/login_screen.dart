@@ -35,7 +35,8 @@ class LoginScreen extends StatelessWidget {
           QuickAlert.show(
               context: context,
               type: QuickAlertType.success,
-              text: 'Login successful!',
+              title: 'Login successful!',
+              text: 'Welcome back!',
               barrierDismissible: false,
               onConfirmBtnTap: () {
                 Navigator.pushReplacementNamed(context, kHomeScreen);
@@ -48,6 +49,7 @@ class LoginScreen extends StatelessWidget {
             context: context,
             type: QuickAlertType.error,
             text: state.error,
+            title: 'Login failed',
             barrierDismissible: false,
             onConfirmBtnTap: () {
               Navigator.pop(context);

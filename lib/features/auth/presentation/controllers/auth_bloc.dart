@@ -2,11 +2,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawel/features/auth/data/data_source/auth_remote_data_source.dart';
 import 'package:nawel/features/auth/data/repositories/auth_repository.dart';
 import 'package:nawel/features/auth/domain/use_cases/login_use_case.dart';
+import 'package:nawel/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:nawel/features/auth/presentation/controllers/auth_events.dart';
 import 'package:nawel/features/auth/presentation/controllers/auth_states.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   LoginUseCase loginUseCase = LoginUseCase(
+    repository: AuthRepositoryImpl(
+      remoteDataSource: AuthRemoteDataSourceImpl(),
+    ),
+  );
+  RegisterUseCase registerUseCase = RegisterUseCase(
     repository: AuthRepositoryImpl(
       remoteDataSource: AuthRemoteDataSourceImpl(),
     ),
@@ -23,6 +29,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
         (token) {
           emit(LoginSuccess(token: token));
+        },
+      );
+    });
+    on<AuthRegisterRequested>((event, emit) async {
+      final String email = event.email;
+      final String password = event.password;
+      emit(const RegisterLoading());
+      final response = await registerUseCase.call(email, password);
+      response.fold(
+        (failure) {
+          emit(RegisterFailure(error: failure.message));
+        },
+        (token) {
+          emit(const RegisterSuccess());
         },
       );
     });

@@ -16,3 +16,13 @@ class LoginFailure extends AuthState {
   final String error;
   const LoginFailure({required this.error});
 }
+class RegisterLoading extends AuthState {
+  const RegisterLoading();
+}
+class RegisterSuccess extends AuthState {
+  const RegisterSuccess();
+}
+class RegisterFailure extends AuthState {
+  final String error;
+  const RegisterFailure({required this.error});
+}

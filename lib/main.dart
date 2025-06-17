@@ -13,12 +13,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'features/splash_screen.dart';
 
-void main() async{
+void main() async {
   GetIt.I.registerSingleton<FlutterSecureStorage>(const FlutterSecureStorage());
-WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);  
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -38,7 +38,10 @@ class MainApp extends StatelessWidget {
                 create: (context) => AuthBloc(),
                 child: LoginScreen(),
               ),
-          kRegisterScreen: (context) => RegisterScreen(),
+          kRegisterScreen: (context) => BlocProvider(
+                create: (context) => AuthBloc(),
+                child: RegisterScreen(),
+              ),
         },
         initialRoute: kLoginScreen,
         theme: ThemeData(
