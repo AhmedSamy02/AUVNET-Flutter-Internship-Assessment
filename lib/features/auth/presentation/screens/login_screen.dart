@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nawel/core/constants/assets.dart';
 import 'package:nawel/core/constants/colors.dart';
@@ -28,9 +26,6 @@ class LoginScreen extends StatelessWidget {
               type: QuickAlertType.loading,
               barrierDismissible: false);
         } else if (state is LoginSuccess) {
-          GetIt.I
-              .get<FlutterSecureStorage>()
-              .write(key: 'token', value: state.token);
           Navigator.pop(context); // Close the loading dialog
           QuickAlert.show(
               context: context,

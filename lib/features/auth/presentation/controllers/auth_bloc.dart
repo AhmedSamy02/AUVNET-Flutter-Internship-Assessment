@@ -36,7 +36,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(LoginFailure(error: failure.message));
         },
         (token) {
-          emit(LoginSuccess(token: token));
+          GetIt.I
+              .get<FlutterSecureStorage>()
+              .write(key: 'token', value: token);
+          emit(LoginSuccess());
         },
       );
     });

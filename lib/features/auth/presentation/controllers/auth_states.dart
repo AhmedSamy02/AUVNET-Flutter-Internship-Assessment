@@ -8,9 +8,7 @@ class LoginLoading extends AuthState {
   const LoginLoading();
 }
 class LoginSuccess extends AuthState {
-  final String token;
 
-  const LoginSuccess({required this.token});
 }
 class LoginFailure extends AuthState {
   final String error;
