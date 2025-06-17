@@ -55,9 +55,17 @@ class AuthTextFormField extends StatelessWidget {
             Radius.circular(5.r),
           ),
         ),
-        errorBorder: OutlineInputBorder(
+        focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(5.r),
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red[300]!,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(5.r),
