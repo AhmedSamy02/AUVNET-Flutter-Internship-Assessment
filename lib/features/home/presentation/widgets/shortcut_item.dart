@@ -11,24 +11,27 @@ class ShortcutItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 2.w),
-      child: Column(
-        children: [
-          SvgPicture.asset(
-            icon,
-            width: 28.w,
-            height: 28.h,
-          ),
-          SizedBox(height: 14.h),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.dmSans(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
+      child: SizedBox(
+        width: 65.w,
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              icon,
+              width: 28.w,
+              height: 28.h,
             ),
-          ),
-        ],
+            SizedBox(height: 14.h),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.dmSans(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
