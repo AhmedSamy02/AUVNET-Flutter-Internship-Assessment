@@ -9,6 +9,7 @@ class NearbyRestaurantsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(left: 20.sp, top: 30.sp),
