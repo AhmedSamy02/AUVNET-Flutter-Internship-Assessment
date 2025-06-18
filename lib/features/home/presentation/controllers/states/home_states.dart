@@ -3,6 +3,12 @@ import 'package:nawel/features/home/data/models/nearby_restaurant.dart';
 sealed class HomeState {
   const HomeState();
 }
+class OfferInitial extends HomeState {
+  const OfferInitial();
+}
+class NearbyRestaurantsInitial extends HomeState {
+  const NearbyRestaurantsInitial();
+}
 class HomeInitial extends HomeState {
   const HomeInitial();
 }

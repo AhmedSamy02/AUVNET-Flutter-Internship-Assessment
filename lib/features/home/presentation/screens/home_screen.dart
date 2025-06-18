@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nawel/core/constants/colors.dart';
+import 'package:nawel/features/home/presentation/controllers/blocs/nearby_bloc.dart';
+import 'package:nawel/features/home/presentation/controllers/blocs/offer_bloc.dart';
 import 'package:nawel/features/home/presentation/screens/pages/home_page.dart';
 import 'package:nawel/features/home/presentation/widgets/home_bottom_navigation_bar.dart';
 
@@ -25,12 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
-        children: const [
-          HomePage(),
-          Center(child: Text('Categories')),
-          Center(child: Text('Delivery')),
-          Center(child: Text('Cart')),
-          Center(child: Text('Profile')),
+        children: [
+          MultiBlocProvider(
+            providers: [
+              BlocProvider<NearbyBloc>(
+                create: (context) => NearbyBloc(),
+              ),
+              BlocProvider<OfferBloc>(
+                create: (context) => OfferBloc(),
+              ),
+            ],
+            child: const HomePage(),
+          ),
+          const Center(child: Text('Categories')),
+          const Center(child: Text('Delivery')),
+          const Center(child: Text('Cart')),
+          const Center(child: Text('Profile')),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -39,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: Colors.grey[700],
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
-        onTap: (index) async{
+        onTap: (index) async {
           await _pageController.animateToPage(index,
               duration: Durations.long2, curve: Curves.easeInOut);
         },
@@ -77,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();

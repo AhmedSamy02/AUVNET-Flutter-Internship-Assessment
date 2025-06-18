@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawel/features/home/presentation/controllers/blocs/offer_bloc.dart';
+import 'package:nawel/features/home/presentation/controllers/events/home_events.dart';
+import 'package:nawel/features/home/presentation/controllers/states/home_states.dart';
 import 'package:nawel/features/home/presentation/widgets/home_page_app_bar.dart';
 import 'package:nawel/features/home/presentation/widgets/nearby_restaurants_widget.dart';
 import 'package:nawel/features/home/presentation/widgets/offers_swiper.dart';
@@ -16,23 +20,24 @@ class HomePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HomePageAppBar(),
-          ServicesWidget(),
-          ShortcutWidget(),
-          OffersSwiper(
-            images: [
-              "https://via.assets.so/game.png?id=0&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=1&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=2&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=3&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=4&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=5&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=6&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=7&q=95&w=360&h=360&fit=fill",
-              "https://via.assets.so/game.png?id=8&q=95&w=360&h=360&fit=fill",
-            ],
+          const HomePageAppBar(),
+          const ServicesWidget(),
+          const ShortcutWidget(),
+          BlocBuilder<OfferBloc, HomeState>(
+            bloc: BlocProvider.of<OfferBloc>(context)
+              ..add(const HomeOffersRequested()),
+            builder: (context, state) {
+              if (state is HomeOffersLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is HomeOffersFailure) {
+                return Center(child: Text(state.error));
+              } else if (state is HomeOffersSuccess) {
+                return OffersSwiper(images: state.offers);
+              }
+              return const SizedBox.shrink();
+            },
           ),
-          NearbyRestaurantsWidget()
+          const NearbyRestaurantsWidget()
         ],
       ),
     );

@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nawel/core/constants/functions.dart';
 import 'package:nawel/core/errors/failure.dart';
 import 'package:nawel/core/errors/firebase_failure.dart';
 import 'package:nawel/core/errors/unexpected_failure.dart';
@@ -14,8 +16,8 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<Either<Failure, String>> login(String email, String password) async {
     try {
       final userCredential = await remoteDataSource.login(email, password);
-      final token = await userCredential.user!.getIdToken();
-      return Right(token!);
+      final token = userCredential.user!.uid;
+      return Right(token);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseFailure.fromCode(e.code));
     } catch (e) {
@@ -26,8 +28,21 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, void>> register(String email, String password) async {
     try {
-      UserCredential credential = await remoteDataSource.register(email, password);
+      UserCredential credential =
+          await remoteDataSource.register(email, password);
+      await credential.user!
+          .updateDisplayName(email.split('@')[0].split('.')[0]);
       await credential.user!.reload();
+      String name = credential.user!.displayName ?? 'User';
+      FirebaseFirestore.instance
+          .collection('users')
+          .doc(credential.user!.uid)
+          .set({
+        'email': email,
+        'name': name.capitalize(),
+        'id': credential.user!.uid,
+        'nearest_stores': [],
+      });
       return const Right(null);
     } on FirebaseAuthException catch (e) {
       return Left(FirebaseFailure.fromCode(e.code));
