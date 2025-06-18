@@ -13,7 +13,7 @@ It's a simple e-commerce application all implemented in clean architecture and a
 ## ⏬ Installation
 
 ```bash
-git clone https://github.com/AhmedSamy02/AUVNET-Internship-Assessment
+git clone https://github.com/AhmedSamy02/AUVNET-Flutter-Internship-Assessment
 flutter pub get
 flutter run
 ```
