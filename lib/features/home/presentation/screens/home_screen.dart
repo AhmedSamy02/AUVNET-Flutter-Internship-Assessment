@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,5 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
         }),
       ),
     );
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
   }
 }
