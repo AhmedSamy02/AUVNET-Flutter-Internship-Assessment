@@ -12,7 +12,8 @@ class LandingWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
-    this.controller, this.lastPage,
+    this.controller,
+    this.lastPage,
   });
   final String title;
   final String description;
@@ -31,7 +32,7 @@ class LandingWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
-                colors: [kPrimaryColor, kGradientCircleColor2],
+                colors: [kPrimaryColor, kSecondaryColor],
               ),
             ),
           ),
