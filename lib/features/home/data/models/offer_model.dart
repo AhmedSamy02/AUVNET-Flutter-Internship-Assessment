@@ -1,13 +1,14 @@
+import 'package:hive/hive.dart';
+part 'offer_model.g.dart';
+@HiveType(typeId: 1)
 class OfferModel {
-  String? id;
+  @HiveField(0)
   String? link;
   OfferModel({
-    this.id,
     this.link,
   });
   factory OfferModel.fromJson(Map<String, dynamic> json) {
     return OfferModel(
-      id: json['id'] as String?,
       link: json['link'] as String?,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawel/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:nawel/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:nawel/features/home/data/repositories/home_repository.dart';
 import 'package:nawel/features/home/domain/use_cases/request_nearby_restaurants_use_case.dart';
@@ -10,6 +11,7 @@ class NearbyBloc extends Bloc<HomeEvent, HomeState> {
   final RequestNearbyRestaurantsUseCase requestNearbyRestaurantsUseCase =
       RequestNearbyRestaurantsUseCase(
     repository: HomeRepositoryImpl(
+      localDataSource: HomeLocalDataSourceImpl(),
       remoteDataSource: HomeRemoteDataSourceImpl(),
     ),
   );

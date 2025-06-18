@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nawel/features/home/data/models/nearby_restaurant.dart';
+import 'package:nawel/features/home/data/models/offer_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<NearbyRestaurant>> getNearbyRestaurants();
-  Future<List<String>> getOffers();
+  Future<List<OfferModel>> getOffers();
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -27,13 +28,13 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }
 
   @override
-  Future<List<String>> getOffers() async {
+  Future<List<OfferModel>> getOffers() async {
     final data = await db.collection('offers').get();
     if (data.docs.isEmpty) {
       return [];
     }
     return data.docs.map((doc) {
-      return doc.data()['link'] as String;
+      return OfferModel.fromJson(doc.data());
     }).toList();
   }
 }

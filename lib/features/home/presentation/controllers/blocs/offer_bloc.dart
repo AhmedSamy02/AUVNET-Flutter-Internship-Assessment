@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawel/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:nawel/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:nawel/features/home/data/repositories/home_repository.dart';
 import 'package:nawel/features/home/domain/use_cases/request_offers_use_case.dart';
@@ -9,6 +10,7 @@ class OfferBloc extends Bloc<HomeEvent, HomeState> {
   final RequestOffersUseCase requestOffersUseCase = RequestOffersUseCase(
     repository: HomeRepositoryImpl(
       remoteDataSource: HomeRemoteDataSourceImpl(),
+      localDataSource: HomeLocalDataSourceImpl(),
     ),
   );
   OfferBloc() : super(const OfferInitial()) {
@@ -21,7 +23,8 @@ class OfferBloc extends Bloc<HomeEvent, HomeState> {
             emit(HomeOffersFailure(error: failure.message));
           },
           (offers) {
-            emit(HomeOffersSuccess(offers: offers));
+            var offerLinks = offers.map((offer) => offer.link??'').toList();
+            emit(HomeOffersSuccess(offers: offerLinks));
           },
         );
       } catch (error) {
