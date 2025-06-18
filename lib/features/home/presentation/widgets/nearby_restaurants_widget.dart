@@ -28,7 +28,7 @@ class NearbyRestaurantsWidget extends StatelessWidget {
         ),
         SizedBox(height: 10.h),
         SizedBox(
-          height: 200.h,
+          height: MediaQuery.of(context).size.width * 0.5,
           child: BlocBuilder<NearbyBloc, HomeState>(
             bloc: BlocProvider.of<NearbyBloc>(context)
               ..add(const HomeNearbyRestaurantsRequested()),
