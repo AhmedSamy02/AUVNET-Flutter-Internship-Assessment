@@ -28,35 +28,25 @@ class ShortcutWidget extends StatelessWidget {
           runSpacing: 16.h,
           spacing: 3.w,
           children: [
-            Expanded(
-              child: ShortcutItem(
-                icon: kPastOrderSVG,
-                title: 'Past Orders',
-              ),
+            ShortcutItem(
+              icon: kPastOrderSVG,
+              title: 'Past Orders',
             ),
-            Expanded(
-              child: ShortcutItem(
-                icon: kSuperSaverSVG,
-                title: 'Super Saver',
-              ),
+            ShortcutItem(
+              icon: kSuperSaverSVG,
+              title: 'Super Saver',
             ),
-            Expanded(
-              child: ShortcutItem(
-                icon: kMustTriesSVG,
-                title: 'Must-tries',
-              ),
+            ShortcutItem(
+              icon: kMustTriesSVG,
+              title: 'Must-tries',
             ),
-            Expanded(
-              child: ShortcutItem(
-                icon: kGiveBackSVG,
-                title: 'Give Back',
-              ),
+            ShortcutItem(
+              icon: kGiveBackSVG,
+              title: 'Give Back',
             ),
-            Expanded(
-              child: ShortcutItem(
-                icon: kStarSVG,
-                title: 'Best Sellers',
-              ),
+            ShortcutItem(
+              icon: kStarSVG,
+              title: 'Best Sellers',
             ),
           ],
         )

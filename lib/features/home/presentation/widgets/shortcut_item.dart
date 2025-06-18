@@ -17,8 +17,8 @@ class ShortcutItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon,
-              width: 28.w,
-              height: 28.h,
+              width: MediaQuery.of(context).size.width * 0.1,
+              height: MediaQuery.of(context).size.width * 0.1,
             ),
             SizedBox(height: 14.h),
             Text(

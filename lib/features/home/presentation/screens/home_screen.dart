@@ -38,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         selectedItemColor: kPrimaryColor,
         unselectedItemColor: Colors.grey[700],
-        unselectedFontSize: 12.sp,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         onTap: (index) async{
